@@ -1,4 +1,6 @@
+import logging
 import os
+import time
 from contextlib import asynccontextmanager
 from pathlib import Path
 
@@ -20,6 +22,21 @@ async def lifespan(_app: FastAPI):
 
 
 app = FastAPI(title="Smart Roster Management", lifespan=lifespan)
+
+log = logging.getLogger("uvicorn.error")
+SLOW_REQUEST_MS = 1000
+
+
+@app.middleware("http")
+async def timing(request, call_next):
+    """Add a Server-Timing header and log slow requests, so a slow page can be traced to one endpoint."""
+    start = time.perf_counter()
+    response = await call_next(request)
+    ms = (time.perf_counter() - start) * 1000
+    response.headers["Server-Timing"] = f"app;dur={ms:.0f}"
+    if ms >= SLOW_REQUEST_MS:
+        log.warning("SLOW %s %s %s took %.0f ms", request.method, request.url.path, response.status_code, ms)
+    return response
 app.include_router(config.router)
 app.include_router(rosters.router)
 

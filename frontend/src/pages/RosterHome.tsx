@@ -23,9 +23,14 @@ export default function RosterHome() {
           <input id="month" type="month" value={month} onChange={(e) => setMonth(e.target.value)} required />
         </div>
         <button className="primary" type="submit" disabled={gen.isPending || !month}>
-          {gen.isPending ? 'Generating… (up to 10 s)' : 'Generate roster'}
+          {gen.isPending ? 'Generating…' : 'Generate roster'}
         </button>
       </form>
+      {gen.isPending && (
+        <p className="muted" role="status">
+          Building the roster and checking every rule. On the free hosting plan this can take 10 to 30 seconds, so please keep this page open.
+        </p>
+      )}
       {gen.isError && <p role="alert" className="alert">{(gen.error as Error).message}</p>}
       <div className="card table-wrap">
         <table>

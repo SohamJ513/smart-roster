@@ -6,11 +6,11 @@ It's a web app that helps an operations manager plan a monthly roster for 30+ pe
 
 I focused on getting the scheduling right and the conflict detection clear, rather than making the screens fancy.
 
-- **Live app:** https://smart-roster-53xr.onrender.com
-- **Demo video:** https://drive.google.com/file/d/1J8jMp-_td8uZDnOcxiDLCu7osaLMctG7/view?usp=sharing
-- **LinkedIn:** https://www.linkedin.com/in/sohamjathar
+- **Live app:** _add your deployed URL here_
+- **Demo video:** _add link here_
+- **LinkedIn:** _add your LinkedIn link here_
 - **Built with:** Python (FastAPI, SQLAlchemy, Google OR-Tools) · React + Vite + TypeScript · SQLite (can switch to PostgreSQL)
-- **Tests:** 82 backend tests (`pytest`) and 14 frontend tests (`vitest`), all passing
+- **Tests:** 84 backend tests (`pytest`) and 19 frontend tests (`vitest`), all passing
 
 ![Company roster with problems panel](docs/screenshots/01-company-roster.png)
 
@@ -58,7 +58,7 @@ On my computer the app uses SQLite, a simple file database, so there is nothing 
 
 I tested the whole flow (generate, add leave, apply a fix, publish, delete, restart) against a real PostgreSQL 16 server, and the data was still there after a restart.
 
-Free hosts go to sleep when idle, so the first page load can take about a minute.
+Free hosts go to sleep when idle, so the first page load can take about a minute. If the app is open while the server wakes up, it shows a "Waking up the server…" message instead of a blank page.
 
 ## Try it yourself (3-5 minutes)
 
