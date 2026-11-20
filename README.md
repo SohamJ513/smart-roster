@@ -6,9 +6,9 @@ It's a web app that helps an operations manager plan a monthly roster for 30+ pe
 
 I focused on getting the scheduling right and the conflict detection clear, rather than making the screens fancy.
 
-- **Live app:** _add your deployed URL here_
-- **Demo video:** _add link here_
-- **LinkedIn:** _add your LinkedIn link here_
+- **Live app:** https://smart-roster-53xr.onrender.com
+- **Demo video:** https://drive.google.com/file/d/1J8jMp-_td8uZDnOcxiDLCu7osaLMctG7/view?usp=sharing
+- **LinkedIn:** https://www.linkedin.com/in/sohamjathar
 - **Built with:** Python (FastAPI, SQLAlchemy, Google OR-Tools) · React + Vite + TypeScript · SQLite (can switch to PostgreSQL)
 - **Tests:** 82 backend tests (`pytest`) and 14 frontend tests (`vitest`), all passing
 
