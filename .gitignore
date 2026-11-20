@@ -1,0 +1,12 @@
+.superpowers/
+__pycache__/
+*.pyc
+.venv/
+node_modules/
+dist/
+*.db
+.env
+.pytest_cache/
+.env.*
+!.env.sample
+!.env.example

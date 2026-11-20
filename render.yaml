@@ -1,0 +1,10 @@
+# Render blueprint: New + > Blueprint, point it at this repo.
+services:
+  - type: web
+    name: smart-roster
+    runtime: docker
+    plan: free
+    healthCheckPath: /api/health
+    envVars:
+      - key: DATABASE_URL
+        sync: false   # Render asks for this when you create the service: paste your Neon connection string
